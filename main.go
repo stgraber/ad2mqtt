@@ -68,6 +68,7 @@ func run() error {
 	mqttOpts.SetUsername(os.Getenv("MQTT_USERNAME"))
 	mqttOpts.SetPassword(os.Getenv("MQTT_PASSWORD"))
 	mqttOpts.SetAutoReconnect(true)
+	mqttOpts.SetCleanSession(false)
 	mqttClient := mqtt.NewClient(mqttOpts)
 	if token := mqttClient.Connect(); token.Wait() && token.Error() != nil {
 		return token.Error()
