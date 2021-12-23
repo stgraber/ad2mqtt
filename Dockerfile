@@ -9,6 +9,7 @@ COPY go.sum ./
 RUN go mod download
 
 COPY *.go ./
+COPY decoder/ ./decoder/
 
 RUN go build -o /ad2mqtt
 
